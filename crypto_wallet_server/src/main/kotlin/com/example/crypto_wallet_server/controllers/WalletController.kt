@@ -12,7 +12,7 @@ class WalletController {
     @Autowired
     private lateinit var walletRepository: WalletRepository
 
-    @PostMapping("/insertWallet")
+    @PostMapping("/insertWallet/")
     fun insertWallet(@RequestBody wallet: Wallet):Wallet? {
         val walletDB = walletRepository.findByAddress(wallet.address)
         return if(walletDB == null) walletRepository.save(wallet) else null
